@@ -14,6 +14,7 @@ class AddExpense : AppCompatActivity() {
 
 
     private lateinit var types: List<ExpenseType>
+    var saveId: ExpenseType? = null
 
     private var selectedTypes: ArrayList<ExpenseType> = arrayListOf()
     lateinit var binding: ActivityAddExpenseBinding
@@ -35,7 +36,8 @@ class AddExpense : AppCompatActivity() {
             builder.setTitle("Choose a type")
             builder.setItems(array){
                 _,position ->
-
+                tmpTypes.add(types[position])
+                saveId = types[position]
                 binding.typeText.setText("${array[position]}")
 
 
@@ -62,7 +64,7 @@ class AddExpense : AppCompatActivity() {
             val name = binding.nameText.text.toString()
             val value = binding.valueText.text.toString().toFloatOrNull()
 
-            val type = binding.typeList.id
+            val type = this.saveId?.expenseTypeId
 
             val date = binding.dateText.text.toString()
             if(name.isNotBlank() && value != null && type != null ){
