@@ -43,7 +43,7 @@
             tools:text="27/05/1990"
             android:alpha="0.8"/>
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/pagesTextView"
+            android:id="@+id/valueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/nameTextView"
